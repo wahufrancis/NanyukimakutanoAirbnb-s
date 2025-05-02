@@ -274,5 +274,37 @@ DEFAULT: '8px',
 </div>
 </div>
 </footer>
+    <script>
+// Toggle mobile menu
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.createElement('button');
+    navToggle.innerHTML = '<i class="ri-menu-line text-2xl"></i>';
+    navToggle.classList.add('lg:hidden', 'text-gray-900', 'hover:text-primary');
+    const navContainer = document.querySelector('nav > div:first-child');
+    navContainer.appendChild(navToggle);
+
+    const navLinks = document.querySelector('nav > div:first-child > div');
+    navLinks.classList.add('hidden', 'flex-col', 'bg-white', 'absolute', 'top-full', 'left-0', 'w-full', 'p-4');
+
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('hidden');
+    });
+});
+
+// Ensure high-res images on mobile
+window.addEventListener('load', () => {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.setAttribute('loading', 'lazy');
+        img.style.imageRendering = 'auto';  // keeps clarity
+        img.style.maxWidth = '100%';
+        img.style.height = 'auto';
+    });
+});
+</script>
+
+    <style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+</style>
 </body>
 </html>

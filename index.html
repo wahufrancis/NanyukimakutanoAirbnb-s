@@ -1,310 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nanyuki AirBnB's</title>
-<script src="https://cdn.tailwindcss.com/3.4.16"></script>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
-<script>
-tailwind.config = {
-theme: {
-extend: {
-colors: {
-primary: '#4F46E5',
-secondary: '#6B7280'
-},
-borderRadius: {
-'none': '0px',
-'sm': '4px',
-DEFAULT: '8px',
-'md': '12px',
-'lg': '16px',
-'xl': '20px',
-'2xl': '24px',
-'3xl': '32px',
-'full': '9999px',
-'button': '8px'
-}
-}
-}
-}
-</script>
-<style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-</style>
-</head>
-<body class="bg-white min-h-screen">
-<header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b">
-<nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-<div class="flex items-center gap-12">
-<a href="#" class="flex items-center gap-2">
-<div class="w-8 h-8 flex items-center justify-center">
-<i class="ri-hotel-line text-2xl text-primary"></i>
-</div>
-<span class="text-2xl font-['Pacifico'] text-primary">Nanyuki AirBnb's</span>
-</a>
-<div class="hidden lg:flex items-center gap-8">
-<a href="#" class="text-gray-900 hover:text-primary">Home</a>
-<a href="#" class="text-gray-900 hover:text-primary">Rooms</a>
-<a href="#" class="text-gray-900 hover:text-primary">Amenities</a>
-<a href="#" class="text-gray-900 hover:text-primary">Location</a>
-<a href="#" class="text-gray-900 hover:text-primary">Contact</a>
-</div>
-</div>
-<div class="flex items-center gap-6">
-<div class="hidden lg:flex items-center gap-4">
-<a href="#" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-primary">
-<i class="ri-facebook-line"></i>
-</a>
-<a href="#" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-primary">
-<i class="ri-instagram-line"></i>
-</a>
-<a href="#" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-primary">
-<i class="ri-twitter-x-line"></i>
-</a>
-</div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenView BnB</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+    }
+    header {
+      background-color: #C4A484;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .hero {
+      background: url('uploads/Untitled-1.jpg') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn {
+      background-color: #ff9800;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #e68900;
+    }
+    .section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .rooms, .amenities {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1rem;
+    }
+    footer {
+      background-color: #333;
+      color: #ddd;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    footer a {
+      color: #ff9800;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    /* Optional custom CSS for the Location section */
 
-</div>
-</nav>
+.location-section {
+  background-color: #f9fafb; /* soft gray background */
+  padding: 5rem 1.5rem;      /* top-bottom 80px, left-right 24px */
+}
+
+.location-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.location-iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+}
+
+.location-content {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .location-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.location-title {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.location-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.location-text {
+  color: #4b5563; /* Tailwind's gray-600 */
+  margin-bottom: 0.5rem;
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div><strong>GreenView BnB</strong></div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#rooms">Rooms</a>
+    <a href="#">Amenities</a>
+    <a href="#">Contact</a>
+  </nav>
 </header>
-<main class="pt-16">
-<section class="relative h-[600px] flex items-center bg-cover bg-center" style="background-image: url('uploads/Untitled-1.jpg')">
-<div class="absolute inset-0 bg-black/30"></div>
-<div class="container mx-auto px-6 relative">
-<div class="max-w-2xl text-white">
-<h1 class="text-5xl font-light mb-6">Experience Luxury Living in the Heart of Nanyuki</h1>
-<p class="text-xl mb-8">Located at makutano ,1KM from Nanyuki town.</p>
-<p class="text-xl mb-8">Near the Main Road.Secure,serene place with Mt.Kenya views on a clear day</p>
-<button class="!rounded-button bg-primary text-white px-8 py-3 hover:bg-primary/90">Call +254 741 930 980</button>
-</div>
-</div>
+
+<section class="hero">
+  <h1>Welcome to GreenView BnB</h1>
+  <p>Relax. Recharge. Enjoy stunning mountain views.</p>
+  <button class="btn" onclick="callNow()">Call Now</button>
 </section>
-<section class="py-20 bg-gray-50">
-<div class="container mx-auto px-6">
-<h2 class="text-3xl text-center mb-12">Our Rooms</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-<div class="h-64 relative">
-<img src="uploads/image7.jpg" alt="Deluxe Room" class="w-full h-full object-cover">
-</div>
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">Familly Room</h3>
-<p class="text-gray-600 mb-4">Spacious two bedroom with two extral beds, king-size bed, and modern amenities.</p>
-<div class="flex items-center gap-4 mb-4">
-<div class="w-6 h-6 flex items-center justify-center text-gray-500">
-<i class="ri-wifi-line"></i>
-</div>
-<div class="w-6 h-6 flex items-center justify-center text-gray-500">
-<i class="ri-tv-line"></i>
-</div>
-<div class="w-6 h-6 flex items-center justify-center text-gray-500">
-<i class="ri-safe-line"></i>
-</div>
-</div>
-<div class="flex items-center justify-between">
-<span class="text-2xl font-light">Ksh 4500/night</span>
-<button class="!rounded-button bg-primary text-white px-6 py-2 hover:bg-primary/90">call +254 741 930 980 </button>
-</div>
-</div>
-</div>
-<div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-<div class="h-64 relative">
-<img src="uploads/image9.jpg" alt="Executive Suite" class="w-full h-full object-cover">
-</div>
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">Executive Suite</h3>
-<p class="text-gray-600 mb-4">Luxurious suite with separate living area and premium amenities</p>
-<div class="flex items-center gap-4 mb-4">
-<div class="w-6 h-6 flex items-center justify-center text-gray-500">
-<i class="ri-wifi-line"></i>
-</div>
-<div class="w-6 h-6 flex items-center justify-center text-gray-500">
-<i class="ri-tv-line"></i>
-</div>
-<div class="w-6 h-6 flex items-center justify-center text-gray-500">
-<i class="ri-safe-line"></i>
-</div>
-</div>
-<div class="flex items-center justify-between">
-<span class="text-2xl font-light">Ksh 4500/night</span>
-<button class="!rounded-button bg-primary text-white px-6 py-2 hover:bg-primary/90">call +254 741 930 980 </button>
-</div>
-</div>
-</div>
-<div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-<div class="h-64 relative">
-<img src="uploads/imag1.jpg" alt="Presidential Suite" class="w-full h-full object-cover">
-</div>
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2"></h3>
-<p class="text-gray-600 mb-4">Ultimate luxury and clean rooms</p>
-<div class="flex items-center gap-4 mb-4">
-<div class="w-6 h-6 flex items-center justify-center text-gray-500">
-<i class="ri-wifi-line"></i>
-</div>
-<div class="w-6 h-6 flex items-center justify-center text-gray-500">
-<i class="ri-tv-line"></i>
-</div>
-<div class="w-6 h-6 flex items-center justify-center text-gray-500">
-<i class="ri-safe-line"></i>
-</div>
-</div>
-<div class="flex items-center justify-between">
-<span class="text-2xl font-light">Ksh 4500/night</span>
-<button class="!rounded-button bg-primary text-white px-6 py-2 hover:bg-primary/90">call +254 741 930 980 </button>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+<section class="section">
+  <h2>Our Rooms</h2>
+  <div class="rooms">
+    <div class="card">
+      <img src="uploads/image0.jpg" alt="Family Room">
+      <div class="card-content">
+        <h3>Family Room</h3>
+        <p>Spacious suite for the whole family. Ksh 4500/night.</p>
+        <button class="btn" onclick="callNow()">Book Now</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="uploads/image8.jpg" alt="Executive Suite">
+      <div class="card-content">
+        <h3>Executive Suite</h3>
+        <p>Luxury with top-notch amenities. Ksh 4,500/night.</p>
+        <button class="btn" onclick="callNow()">Book Now</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="uploads/image5.jpg" alt="Presidential Suite">
+      <div class="card-content">
+        <h3>Presidential Suite</h3>
+        <p>Ultimate luxury experience. Ksh 4,500/night.</p>
+        <button class="btn" onclick="callNow()">Book Now</button>
+      </div>
+    </div>
+  </div>
 </section>
-<section class="py-20">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl text-center mb-12">Amenities</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <div class="text-center">
-          <div
-            class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-primary text-2xl"
-          >
-            <i class="ri-wifi-line"></i>
-          </div>
-          <h3 class="text-lg font-semibold mb-2">Free WiFi</h3>
-          <p class="text-gray-600">High-speed internet</p>
+
+<section class="section">
+  <h2>Amenities</h2>
+  <div class="amenities">
+    <div class="card">
+      <div class="card-content">
+        <h3>Free WiFi</h3>
+        <p>High-speed internet in all rooms and common areas.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h3>Parking</h3>
+        <p>Secure on-site parking for all guests.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h3>Smart TV</h3>
+        <p>Enjoy Netflix, YouTube, and more.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h3>Daily Cleaning</h3>
+        <p>Housekeeping available every day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="location-section">
+  <div class="location-container">
+    <h2 class="location-title">Location</h2>
+    <div class="location-card">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8178717993687!2d37.098392875821034!3d0.027168364397340838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1787f70029bd8817%3A0xfd0522d33b7e419f!2sGreenview%20apartments%20nanyuki!5e0!3m2!1sen!2ske!4v1746773478045!5m2!1sen!2ske"
+       width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+     
+      <div class="location-content">
+        <div>
+          <h3 class="location-heading">Address</h3>
+          <p class="location-text">Makutano, Nanyuki</p>
+          <p class="location-text">1KM from Nanyuki town</p>
+          <p class="location-text">Near Main Road, with Mt. Kenya views</p>
         </div>
-        <div class="text-center">
-          <div
-            class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-primary text-2xl"
-          >
-            <i class="ri-parking-line"></i>
-          </div>
-          <h3 class="text-lg font-semibold mb-2">Free Parking</h3>
-          <p class="text-gray-600">On-site parking</p>
-        </div>
-        <div class="text-center">
-          <div
-            class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-primary text-2xl"
-          >
-            <i class="ri-tv-line"></i>
-          </div>
-          <h3 class="text-lg font-semibold mb-2">Smart TV</h3>
-          <p class="text-gray-600">Premium channels</p>
-        </div>
-        <div class="text-center">
-          <div
-            class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-primary text-2xl"
-          >
-            <i class="ri-home-gear-line"></i>
-          </div>
-          <h3 class="text-lg font-semibold mb-2">Daily Housekeeping</h3>
-          <p class="text-gray-600">Room service</p>
+        <div>
+          <h3 class="location-heading">Getting Here</h3>
+          <p class="location-text">5 minutes from Nanyuki Town</p>
+          <p class="location-text">5 minutes from Nanyuki Mall</p>
+          <p class="location-text">Near major landmarks</p>
         </div>
       </div>
     </div>
-    </section>
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-          <h2 class="text-3xl text-center mb-12">Location</h2>
-          <div class="bg-white rounded-lg overflow-hidden shadow-sm">
-          
-            <div class="p-8">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h3 class="text-xl font-semibold mb-4">Address</h3>
-                  <p class="text-gray-600 mb-2">Green view Appartments</p>
-                  <p class="text-gray-600 mb-2">Makutano center</p>
-                  <p class="text-gray-600">Nanyuki</p>
-                </div>
-                <div>
-                  <h3 class="text-xl font-semibold mb-4">Getting Here</h3>
-                  <p class="text-gray-600 mb-2">1KM from nanyuki town</p>
-                  <p class="text-gray-600 mb-2">
-                    5 minutes walk to Beisa restaurant and Kongoni restaurant 
-                  </p>
-                  <p class="text-gray-600">Near main road</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-</main>
-<footer class="bg-gray-900 text-white py-12">
-<div class="container mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-<div>
-<h3 class="flex items-center gap-2 mb-4">
-<i class="ri-hotel-line text-xl text-primary"></i>
-<span class="text-xl font-['Pacifico'] text-primary">Nanyuki AirBnB's</span>
-</h3>
-<p class="text-gray-400">Experience luxury living in the heart of Nanyuki.</p>
-</div>
-<div>
-<h3 class="text-lg font-semibold mb-4">Contact</h3>
-<p class="text-gray-400 mb-2">+254 741 930 980</p>
+  </div>
+</section>
 
-</div>
-<div>
-<h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-<ul class="space-y-2">
-<li><a href="#" class="text-gray-400 hover:text-white">Rooms</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white">Amenities</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white">Location</a></li>
-<li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
-</ul>
-</div>
-<div>
-<h3 class="text-lg font-semibold mb-4">Follow Us</h3>
-<div class="flex gap-4">
-<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary">
-<i class="ri-facebook-line"></i>
-</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary">
-<i class="ri-instagram-line"></i>
-</a>
-<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary">
-<i class="ri-twitter-x-line"></i>
-</a>
-</div>
-</div>
-</div>
-<div class="border-t border-gray-800 mt-12 pt-8 text-center">
-<p class="text-gray-400">&copy; 2025 Green view BnB's. All rights reserved.</p>
-</div>
-</div>
+
+<footer>
+  <p>&copy; 2025 GreenView BnB. All rights reserved.</p>
+  <div>
+    <a href="#">Facebook</a> |
+    <a href="#">Instagram</a> |
+    <a href="#">Twitter</a>
+  </div>
 </footer>
-    <script>
-// Toggle mobile menu
-document.addEventListener('DOMContentLoaded', function() {
-    const navToggle = document.createElement('button');
-    navToggle.innerHTML = '<i class="ri-menu-line text-2xl"></i>';
-    navToggle.classList.add('lg:hidden', 'text-gray-900', 'hover:text-primary');
-    const navContainer = document.querySelector('nav > div:first-child');
-    navContainer.appendChild(navToggle);
 
-    const navLinks = document.querySelector('nav > div:first-child > div');
-    navLinks.classList.add('hidden', 'flex-col', 'bg-white', 'absolute', 'top-full', 'left-0', 'w-full', 'p-4');
-
-    navToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('hidden');
-    });
-});
-
-// Ensure high-res images on mobile
-window.addEventListener('load', () => {
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.setAttribute('loading', 'lazy');
-        img.style.imageRendering = 'auto';  // keeps clarity
-        img.style.maxWidth = '100%';
-        img.style.height = 'auto';
-    });
-});
+<script>
+  function callNow() {
+    alert("📞 Call us at +254 741 930 980");
+  }
 </script>
 
-    <style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-</style>
 </body>
 </html>
